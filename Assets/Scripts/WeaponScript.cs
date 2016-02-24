@@ -3,10 +3,11 @@ using System.Collections;
 
 public class WeaponScript : MonoBehaviour {
 
+    ShotScript shot;
     public Transform shotPrefab;
     public float shootingRate = 0.25f;
     private float shootCooldown;
-
+    MoveScript move;
 
 	// Use this for initialization
 	void Start () {
@@ -22,23 +23,28 @@ public class WeaponScript : MonoBehaviour {
         }
         }
 
-    public void Atcack(bool isEnemy)
+    public void Attack(bool isEnemy)
     {
         if (CanAttack )
         {
             shootCooldown = shootingRate;
-            Transform startTranform = Instantiate(shotPrefab) as Transform;
-
-            
-
+            Transform shotTranform = Instantiate(shotPrefab) as Transform;
 
             shotPrefab.position = gameObject.transform.position;
-
-            (if shot != null)
+            move = shotTranform.gameObject.GetComponent<MoveScript>();
+            if (shot != null)
             {
                 shot.isEnemyShot = isEnemy;
             }
 
+            move = shotTranform.gameObject.GetComponent<MoveScript>();
+
+            if (move != null)
+            {
+                move.direction = this.transform.right;
+            }
+
+            
         }
     }
 

@@ -4,7 +4,7 @@ using System.Collections;
 public class MoveScript : MonoBehaviour {
     public float speed;
     private Vector2 movement;
-    private Vector2 direction;
+    public Vector2 direction;
     Rigidbody2D rigid;
 	// Use this for initialization
 	void Start () {
