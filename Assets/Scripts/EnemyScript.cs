@@ -39,8 +39,6 @@ public class EnemyScript : MonoBehaviour {
         }
         else
         {
-
-
             foreach (WeaponScript weapon in weapons)
             {
                 if (weapon != null && weapon.enabled && weapon.CanAttack)
@@ -62,7 +60,6 @@ public class EnemyScript : MonoBehaviour {
 
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         moveScript.enabled = true;
-
         foreach(WeaponScript weapon in weapons)
         {
             weapon.enabled = true;
